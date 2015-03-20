@@ -1,2 +1,2 @@
-# shell
-Custom Shell Program
+# Custom "Super" Shell
+Custom Shell Program Created With C++
