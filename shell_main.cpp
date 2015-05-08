@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void parse_arg(char* arg, char* argv[], char input[])
+void parse_arg(char* arg, char* argv[], char input[])		//Function to parse the command input into args
 {
     char shell[256];
     getcwd(shell, 255);
@@ -26,7 +26,7 @@ void parse_arg(char* arg, char* argv[], char input[])
 	}
 }
 
-void exec_arg(char* argv[])
+void exec_arg(char* argv[])				//Function used to execute the argument through fork and exec
 {
     pid_t pid;
     pid = fork();
@@ -51,7 +51,7 @@ void exec_arg(char* argv[])
 
 }
 
-void clean_arry(char* argv[])
+void clean_arry(char* argv[])				//Empties the arv array for the next command
 {
     for(int i=0; i < 40; i++){argv[i] = NULL;}
 }
@@ -62,7 +62,7 @@ int main()
    char* argv[40];
    char input[50];
 
-   while(argv[0] != NULL)
+   while(argv[0] != NULL)			//Implementation for an exit of the CLI
    {
     clean_arry(argv);
    	parse_arg(arg, argv, input);
@@ -72,7 +72,7 @@ int main()
         break;
    	}
 
-    else if(strcmp(argv[0],"cd") == 0)
+    else if(strcmp(argv[0],"cd") == 0)		//Implementation to change the directory working in
    	{
         chdir(argv[1]);
         wait(NULL);
